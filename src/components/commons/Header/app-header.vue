@@ -1,23 +1,24 @@
 <template>
   <header id="header">
       <div id="top">
-        <h1>bilibili</h1>
+        <router-link tag="h1" :to="{name:'indexBody'}">bilibili</router-link>
         <a href="###" id="search-button"></a>
         <a href="###" class="head-button"></a>
         <a href="###" class="download-app-button">下载App</a>
       </div>
-      <app-nav/>
+      <app-nav v-if="hasNav"></app-nav>
   </header>
   
 </template>
 
 <script>
-import appNav from "./nav";
+import appNav from "./nav.vue";
 export default {
   name: "app-header",
   components: {
     appNav
-  }
+  },
+  props:["hasNav"]
 };
 </script>
 
@@ -29,6 +30,8 @@ export default {
     height: 0.44rem;
     width: 100%;
     position: fixed;
+    z-index: 20;
+    background: #fff;
     top: 0;
     left: 0;
     display: flex;

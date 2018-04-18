@@ -28,14 +28,16 @@ Vue.config.productionTip = false
 
 //处理axios，让组件通过this.$http来使用
 import axios from 'axios'
-Vue.prototype.$http = axios
-
-
+import vueResource from "vue-resource"
+Vue.prototype.$axios = axios
+Vue.use(vueResource);
+import router from './router'
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
   components: { App },
   //相当于将el直接替换成app组件
+  router,
   template: '<App/>'
 })
 

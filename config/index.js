@@ -17,7 +17,14 @@ module.exports = {
         pathRewrite: {
           '^/mz': ''//需要rewrite重写
         }
-      }
+      },
+        "/bl":{
+          target:'https://api.bilibili.com',
+          changeOrigin: true,
+          pathRewrite:{
+            "^/bl":""
+          }
+        }
     },
 
     // Various Dev Server settings
