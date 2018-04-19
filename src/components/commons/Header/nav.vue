@@ -2,9 +2,9 @@
 <div id="nav">
   <div class="swiper-container">
    <ul class='navclose swiper-wrapper' v-show= "!isOpen">
-    <li v-for="(nav ,index) in navList" :key = "nav.id" class="swiper-slide" :to="{path: (nav.id>16?'index':'channel'),params:(nav.id>16?{}:{cid:nav.cid})}">
+    <router-link tag="li" v-for="(nav ,index) in navList" :key = "nav.id" class="swiper-slide" :to="{name: (nav.id>16?'indexBody':'channel'),params:(nav.id>16?{}:{cid:nav.cid})}">
       <span :class="[index===activeIndex?'active-nav':'']" @click="activeIndex = index">{{nav.title}}</span>
-    </li>
+    </router-link>
   </ul>
   
   <div v-if = "!isOpen" @click="isOpen = !isOpen" class="down"></div>
@@ -17,7 +17,7 @@
     leave-active-class="animated slideOutUp"
     >
       <ul class='open' v-if= "isOpen">
-        <router-link v-for="(nav ,index) in navList" :key = "nav.id" tag="li" :to="{path: (nav.id>16?'index':'channel'),params:(nav.id>16?{}:{cid:nav.cid})}">
+        <router-link v-for="(nav ,index) in navList" :key = "nav.id" tag="li" :to="{name: (nav.id>16?'indexBody':'channel'),params:{cid:1}}">
           <span :class="[index===activeIndex?'active-nav':'']" @click="activeIndex = index">{{nav.title}}</span>
         </router-link>
         <li v-if="isOpen" @click="isOpen = !isOpen" class="up">
@@ -48,17 +48,17 @@ export default {
         {
           title: "动画",
           id: 1,
-          cids:1
+          cid:1
         },
         {
           title: "番剧",
           id: 2,
-          cids:13
+          cid:13
         },
         {
           title: "国创",
           id: 3,
-          cids:167
+          cid:167
         },
         {
           title: "音乐",
@@ -142,6 +142,11 @@ export default {
       freeModeMomentum: false,
       slidesPerView: 6
     });
+  },
+  created(){
+    this.$root.$on("changeMainNavIndex",(index)=>{
+      this.activeIndex = index;
+    })
   }
 };
 </script>
