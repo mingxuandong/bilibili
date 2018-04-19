@@ -4,6 +4,7 @@
             <source v-if="videoinfo.durl" :src="'http://localhost:3000/api/video?' + computedUrl + '&aid=' + aid " type="video/mp4">
         </video> -->
         <!-- {{computedUrl}} -->
+
     </div>
 </template>
 <script>
@@ -13,7 +14,8 @@ export default {
   props:["aid"],
   data(){
       return {
-          videoinfo:{}
+          videoinfo:{},
+          moreVideo:[]
       }
   },
   computed:{

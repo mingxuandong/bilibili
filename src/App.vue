@@ -26,13 +26,16 @@ export default {
     }
     router.beforeEach((to,from,next) => {
       switch(to.name){
+        case "videoinfo":
+        this.hasNav = false;
         
-        case "videoinfo":this.hasNav = false;break;
+        
+        break;
         case "indexBody":this.hasNav = true;break;
       }
       next();
     })
-  }
+  },
 }
 </script>
 

@@ -20,7 +20,7 @@ export default new Router({
       path: "/videoinfo/:aid",
       name:"videoinfo",
       props:true,
-      component: videoinfo
+      component: videoinfo,
     }
   ]
 })

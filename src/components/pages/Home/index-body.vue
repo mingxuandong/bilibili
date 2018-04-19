@@ -12,6 +12,14 @@ export default {
   name:"index-body",
   components:{
       banner,mainBox
-  }
+  },
+  beforeRouteLeave(to, from, next){
+    console.log("hahahahaha");
+    if(to.name == "videoinfo"){
+
+      this.$root.$emit("gotovideoinfo",to);
+    }
+    next();
+  }   
 }
 </script>

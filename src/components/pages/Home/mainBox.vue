@@ -16,6 +16,8 @@
 </template>
 
 <script>
+// import router from "../../../router"
+import {  mapMutations } from "vuex"
 export default {
   name:"main-box",
   data(){
@@ -26,18 +28,39 @@ export default {
       }
   },
   created(){
+    //   console.log(this.goInfo)
+      this.$root.$once("gotovideoinfo",this.goInfo)
       this.$axios({
           url:"http://localhost:3000/api/ranking?rid=0&day=3&jsonp=jsonp&aid=22129389",
           method:"get"
       }).then(result=>{
           this.dataList = result.data.data.list;
-          console.log(this.dataList)
       })
   },computed:{
       dataLists(start){
           start = start *20
           return this.dataList.slice(start,start + 20);
       }
+  },
+    mounted(){
+        // console.log(this.goInfo)
+    },
+  
+  methods:{
+      goInfo(to){
+          console.log("gotoinfo is changed heiheiheiheihei")
+          
+             for(var i = 0; i < this.dataList.length; i++){
+              if(to.params.aid===this.dataList[i].aid){
+                  this.$store.commit("changeInfoPage",this.dataList[i]);
+                  break;
+              }
+          }
+        //   console.log("hahahahaha11212") 
+      }
+  },
+ beforeDestroy(){
+      
   }
 }
 </script>

@@ -32,12 +32,14 @@ import vueResource from "vue-resource"
 Vue.prototype.$axios = axios
 Vue.use(vueResource);
 import router from './router'
+import store from "./store"
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
   components: { App },
   //相当于将el直接替换成app组件
   router,
+  store,
   template: '<App/>'
 })
 

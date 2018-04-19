@@ -2,7 +2,7 @@
 <div id="nav">
   <div class="swiper-container">
    <ul class='navclose swiper-wrapper' v-show= "!isOpen">
-    <li v-for="(nav ,index) in navList" :key = "nav.id" class="swiper-slide">
+    <li v-for="(nav ,index) in navList" :key = "nav.id" class="swiper-slide" :to="{path: (nav.id>16?'index':'channel'),params:(nav.id>16?{}:{cid:nav.cid})}">
       <span :class="[index===activeIndex?'active-nav':'']" @click="activeIndex = index">{{nav.title}}</span>
     </li>
   </ul>
@@ -17,9 +17,9 @@
     leave-active-class="animated slideOutUp"
     >
       <ul class='open' v-if= "isOpen">
-        <li v-for="(nav ,index) in navList" :key = "nav.id">
+        <router-link v-for="(nav ,index) in navList" :key = "nav.id" tag="li" :to="{path: (nav.id>16?'index':'channel'),params:(nav.id>16?{}:{cid:nav.cid})}">
           <span :class="[index===activeIndex?'active-nav':'']" @click="activeIndex = index">{{nav.title}}</span>
-        </li>
+        </router-link>
         <li v-if="isOpen" @click="isOpen = !isOpen" class="up">
 
         </li>
@@ -47,67 +47,83 @@ export default {
         },
         {
           title: "动画",
-          id: 1
+          id: 1,
+          cids:1
         },
         {
           title: "番剧",
-          id: 2
+          id: 2,
+          cids:13
         },
         {
           title: "国创",
-          id: 3
+          id: 3,
+          cids:167
         },
         {
           title: "音乐",
-          id: 4
+          id: 4,
+          cid:3
         },
         {
           title: "舞蹈",
-          id: 5
+          id: 5,
+          cid:129
         },
         {
           title: "科技",
-          id: 6
+          id: 6,
+          cid:36
         },
         {
           title: "游戏",
-          id: 7
+          id: 7,
+          cid:4
         },
         {
           title: "娱乐",
-          id: 8
+          id: 8,
+          cid:5
         },
         {
           title: "鬼畜",
-          id: 9
+          id: 9,
+          cid:119
         },
         {
           title: "电影",
-          id: 10
+          id: 10,
+          cid:23
         },
         {
           title: "电视剧",
-          id: 11
+          id: 11,
+          cid:11
         },
         {
           title: "纪录片",
-          id: 12
+          id: 12,
+          cid:177
         },
         {
           title: "影视",
-          id: 13
+          id: 13,
+          cid:181
         },
         {
           title: "时尚",
-          id: 14
+          id: 14,
+          cid:155
         },
         {
           title: "生活",
-          id: 15
+          id: 15,
+          cid:160
         },
         {
           title: "广告",
-          id: 16
+          id: 16,
+          cid:165
         },
         {
           title: "直播",
