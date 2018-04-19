@@ -1,11 +1,17 @@
 <template>
+<div>
   <ul id="channel-nav">
       <router-link :class="{'activeInfoNav':cid==item.cid}"  v-for="item in currentClass" tag="li" :to=" { name:'channel' , params:{cid:item.cid} } " :key="item.cid">
           {{item.title}}
       </router-link>
   </ul>
+  <channel-mainly-box v-if="isMainly" :current-class="currentClass" />
+  <channel-info-class-box v-else :cid="cid" />
+</div>
 </template>
 <script>
+import channelMainlyBox from "./channelMainlyBox.vue"
+import channelInfoClassBox from './channelInfoClassBox.vue'
 export default {
   name:"channelNav",
   data(){
@@ -19,6 +25,7 @@ export default {
           isMainly:true,
       }
   },
+  components:{channelMainlyBox,channelInfoClassBox},
   props:["cid"],
   created(){
     // console.log(typeof this.cid)
@@ -92,6 +99,8 @@ export default {
   color:#fb7299;
 }
 #channel-nav{
+  position: absolute;
+  top: 0.76rem;
   width: 100%;
   overflow-x: scroll;
   overflow-y: hidden;

@@ -79,6 +79,7 @@ export default {
         img{
             border-radius:5px;
             background: #ccc;
+            height:1.06rem;
         }
         p{
             margin-top: 0.05rem;
