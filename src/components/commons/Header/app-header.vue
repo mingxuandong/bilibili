@@ -8,7 +8,7 @@
       </div>
       <app-nav v-if="hasNav"></app-nav>
   </header>
-  
+
 </template>
 
 <script>

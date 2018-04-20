@@ -99,7 +99,7 @@ export default {
   color:#fb7299;
 }
 #channel-nav{
-  position: absolute;
+  position: fixed;
   top: 0.76rem;
   width: 100%;
   overflow-x: scroll;

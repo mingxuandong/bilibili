@@ -85,6 +85,12 @@ export default {
           }
           height: 1.43rem;
           overflow: hidden;
+          p{
+            display: -webkit-box;
+            -webkit-box-orient: vertical;
+            -webkit-line-clamp: 2;
+            overflow: hidden;
+          }
       }
       h3{
           font-size: 0.16rem;

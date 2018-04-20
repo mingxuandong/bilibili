@@ -83,6 +83,10 @@ export default {
         }
         p{
             margin-top: 0.05rem;
+            display: -webkit-box;
+            -webkit-box-orient: vertical;
+            -webkit-line-clamp: 2;
+            overflow: hidden;
         }
         overflow: hidden;
         position: relative;
