@@ -31,6 +31,14 @@ export default {
   },
   created(){
       
+  },
+  watch:{
+      results:{
+          immediate:true,
+          handler(newval){
+              this.searchResults = newval;
+          }
+      }
   }
 }
 </script>
