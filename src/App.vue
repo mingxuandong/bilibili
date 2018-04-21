@@ -43,5 +43,5 @@ export default {
   body{
     padding-top: 0.76rem;
   }
-
+  
 </style>

@@ -2,7 +2,7 @@
   <header id="header">
       <div id="top">
         <router-link tag="h1" :to="{name:'indexBody'}">bilibili</router-link>
-        <a href="###" id="search-button"></a>
+        <router-link :to="{name:'search',query:{keywords:'chenyifa'}}" id="search-button"></router-link>
         <a href="###" class="head-button"></a>
         <a href="###" class="download-app-button">下载App</a>
       </div>
